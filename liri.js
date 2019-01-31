@@ -58,17 +58,15 @@ function spotifyThis(input) {
 
         var data = response.tracks.items[0];
         var display = [
-            "Artist: " + data.artists.name,
+            "Artist: " + data.artists[0].name,
             "Song Name: " + data.name,
             "Album Name: " + data.album.name,
             "Preview Link: " + data.preview_url
         ]
      
-    console.log(display); 
+        console.log(display); 
+        //pretty up the log display
     });
-
-    //STILL NEED TO FIND AND SHOW THE DATA
-    //and set default
 
     fs.appendFile("log.txt", input + "\n", function(error) {
         if (error) {
