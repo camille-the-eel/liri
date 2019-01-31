@@ -18,7 +18,7 @@ if (process.argv.length === 2) {
 } else if (process.argv[2] === "movie-this") {
     movieThis(input);
 } else if (process.argv[2] === "do-what-it-says") {
-    doThis(input);
+    doThis();
 } else {
     console.log("Please enter a valid command. \n Search for music events by band or artist with: concert-this \n Learn more about your favorite songs with: spotify-this-song \n Get more information about your favorite movies with: movie-this \n Randomize your result with: do-what-it-says");
 }
@@ -29,59 +29,75 @@ console.log(input);
 //BANDS IN TOWN 
 function concertThis(input) {
 
-    axios.get("https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp")
-        .then(function (response) {
+    axios.get("https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp").then(
+        function (response) {
             var bit = response.data[0];
             // var venueName = venue.VenueData.name;
-            console.log(bit.venue.name);
-        })
-        .catch(function (error) {
+            // console.log(bit.VenueData.name);
+            console.log(response);
+
+            //STILL NEED TO FIND AND SHOW THE DATA
+            //AND SET DEFAULT
+
+
+    }).catch(function (error) {
             console.log(error);
         });
 
-        fs.appendFile("log.txt", input + "\n", function(error) {
-            if (error) {
-                console.log("Error");
-            }
+    fs.appendFile("log.txt", input + "\n", function(error) {
+        if (error) {
+            console.log("Error");
+        }
     });
 }
 
 function spotifyThis(input) {
+     
+    spotify.search( {type: 'track', query: input }, function (error, response) {
+      if (error) {
+        return console.log('Error occurred: ' + error);
+      }
+     
+    console.log(response); 
+    });
 
-    axios.get()
-        .then(function (response) {
+    //STILL NEED TO FIND AND SHOW THE DATA
 
-        })
+    fs.appendFile("log.txt", input + "\n", function(error) {
+        if (error) {
+            console.log("Error, cannot be logged.");
+        }
+    });
+}
 
+function movieThis(input) {
+
+    axios.get("http://www.omdbapi.com/?t=" + input + "&y=&plot=short&apikey=trilogy").then( 
+        function (response) {
+            console.log(response);
+
+            //STILL NEED TO FIND AND SHOW THE DATA
+    });
+
+    fs.appendFile("log.txt", input + "\n", function(error) {
+        if (error) {
+            console.log("Error, cannot be logged" + error);
+        }
+    });
 
 }
-// COMMANDS TO INCLUDE
-// * `concert-this`  `node liri.js concert-this <artist/band name here>`
-    // WILL SEARCH BANDS IN TOWN FOR AN ARTIST AND GIVE YOU
-    // name of venue
-    // venue location
-    // date of event mm/dd/yyyy
 
-// * `spotify-this-song` `node liri.js spotify-this-song '<song name here>'`
-    // will show this info:
-    // artist
-    // song name
-    // preview link of song from spotify
-    // album
 
-    // if no song, default is : the sign by ace of base
+function doThis() {
 
-// * `movie-this`
-    // output:
-    // * Title of the movie.
-    // * Year the movie came out.
-    // * IMDB Rating of the movie.
-    // * Rotten Tomatoes Rating of the movie.
-    // * Country where the movie was produced.
-    // * Language of the movie.
-    // * Plot of the movie.
-    // * Actors in the movie.
+    fs.readFile("random.txt", "utf8", function(error, response) {
+        if (error) {
+            console.log(error);
+        } else {
+            var info = response.split(",");
+            var command = info[0];
+        }
 
-    // default: mr. nobody
 
-// * `do-what-it-says`
+    })
+}
