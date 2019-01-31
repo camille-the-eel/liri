@@ -62,6 +62,7 @@ function spotifyThis(input) {
     });
 
     //STILL NEED TO FIND AND SHOW THE DATA
+    //and set default
 
     fs.appendFile("log.txt", input + "\n", function(error) {
         if (error) {
@@ -77,6 +78,7 @@ function movieThis(input) {
             console.log(response);
 
             //STILL NEED TO FIND AND SHOW THE DATA
+            //and set default
     });
 
     fs.appendFile("log.txt", input + "\n", function(error) {
@@ -96,8 +98,15 @@ function doThis() {
         } else {
             var info = response.split(",");
             var command = info[0];
+            console.log(info);
+
+            //need to remove quotation marks
+            //have 'command' actually call the command
+            //have [1] become 'input'
         }
 
 
     })
 }
+
+//change log into one function that is called in each
