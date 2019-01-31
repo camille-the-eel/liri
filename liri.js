@@ -93,6 +93,7 @@ function movieThis(input) {
         ]
 
         console.log(movieDisplay);
+        //pretty up log display
     });
 
     fs.appendFile("log.txt", input + "\n", function(error) {
