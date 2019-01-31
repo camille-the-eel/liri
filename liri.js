@@ -25,8 +25,6 @@ if (process.argv.length === 2) {
 
 console.log(input);
 
-
-//BANDS IN TOWN 
 function concertThis(input) {
 
     axios.get("https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp").then(
@@ -54,11 +52,19 @@ function concertThis(input) {
 function spotifyThis(input) {
      
     spotify.search( {type: 'track', query: input }, function (error, response) {
-      if (error) {
+        if (error) {
         return console.log('Error occurred: ' + error);
-      }
+        }
+
+        var data = response.tracks.items[0];
+        var display = [
+            "Artist: " + data.artists.name,
+            "Song Name: " + data.name,
+            "Album Name: " + data.album.name,
+            "Preview Link: " + data.preview_url
+        ]
      
-    console.log(response); 
+    console.log(display); 
     });
 
     //STILL NEED TO FIND AND SHOW THE DATA
@@ -108,7 +114,7 @@ function doThis() {
         } else if (command === "movie-this") {
             movieThis(searchInput);
         } else {
-            console.log("Error. Sorry, try again later.");
+            console.log("Error. Sorry.");
         }
         
         //maybe use switch for this instead?
