@@ -56,15 +56,15 @@ function spotifyThis(input) {
         return console.log('Error occurred: ' + error);
         }
 
-        var data = response.tracks.items[0];
-        var display = [
-            "Artist: " + data.artists[0].name,
-            "Song Name: " + data.name,
-            "Album Name: " + data.album.name,
-            "Preview Link: " + data.preview_url
+        var songData = response.tracks.items[0];
+        var songDisplay = [
+            "Artist: " + songData.artists[0].name,
+            "Song Name: " + songData.name,
+            "Album Name: " + songData.album.name,
+            "Preview Link: " + songData.preview_url
         ]
      
-        console.log(display); 
+        console.log(songDisplay); 
         //pretty up the log display
     });
 
@@ -79,10 +79,20 @@ function movieThis(input) {
 
     axios.get("http://www.omdbapi.com/?t=" + input + "&y=&plot=short&apikey=trilogy").then( 
         function (response) {
-            console.log(response);
 
-            //STILL NEED TO FIND AND SHOW THE DATA
-            //and set default
+        var movieData = response.data;
+        var movieDisplay = [
+            "Movie Title: " + movieData.Title,
+            "Release Year: " + movieData.Year,
+            "IMDB Rating: " + movieData.imdbRating,
+            "Rotten Tomatoes Rating: " + movieData.Metascore,
+            "Country of Production: " + movieData.Country,
+            "Language of the Movie: " + movieData.Language,
+            "Plot: " + movieData.Plot,
+            "Actors: " + movieData.Actors
+        ]
+
+        console.log(movieDisplay);
     });
 
     fs.appendFile("log.txt", input + "\n", function(error) {
