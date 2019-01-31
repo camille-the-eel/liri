@@ -95,18 +95,25 @@ function doThis() {
     fs.readFile("random.txt", "utf8", function(error, response) {
         if (error) {
             console.log(error);
-        } else {
-            var info = response.split(",");
-            var command = info[0];
-            console.log(info);
-
-            //need to remove quotation marks
-            //have 'command' actually call the command
-            //have [1] become 'input'
         }
 
+        var info = response.split(",");
+        var command = info[0];
+        var searchInput = info[1].replace(/"/g, '');
+
+        if (command === "spotify-this-song") {
+            spotifyThis(searchInput);
+        } else if (command === "concert-this") {
+            concertThis(searchInput);
+        } else if (command === "movie-this") {
+            movieThis(searchInput);
+        } else {
+            console.log("Error. Sorry, try again later.");
+        }
+        
+        //maybe use switch for this instead?
 
     })
 }
 
-//change log into one function that is called in each
+//change logging  into one function that is called in each function
