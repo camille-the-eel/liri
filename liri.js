@@ -23,16 +23,26 @@ if (process.argv.length === 2) {
     console.log("Please enter a valid command. \n Search for music events by band or artist with: concert-this \n Learn more about your favorite songs with: spotify-this-song \n Get more information about your favorite movies with: movie-this \n Randomize your result with: do-what-it-says");
 }
 
-console.log(input);
+// console.log(input);
 
 function concertThis(input) {
 
     axios.get("https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp").then(
         function (response) {
+
+            fs.appendFile("test.txt", response, function(error) {
+ 
+                if (error) {
+                    console.log(error);
+                }
+            })
+
+
             var bit = response.data[0];
             // var venueName = venue.VenueData.name;
             // console.log(bit.VenueData.name);
-            console.log(response);
+            // console.log(response);
+            console.log(response.data);
 
             //STILL NEED TO FIND AND SHOW THE DATA
             //AND SET DEFAULT
@@ -62,10 +72,9 @@ function spotifyThis(input) {
             "Song Name: " + songData.name,
             "Album Name: " + songData.album.name,
             "Preview Link: " + songData.preview_url
-        ]
+        ].join("\n\n");
      
-        console.log(songDisplay); 
-        //pretty up the log display
+        console.log("\n--------------------------------------\n" + songDisplay + "\n--------------------------------------\n"); 
     });
 
     fs.appendFile("log.txt", input + "\n", function(error) {
@@ -90,10 +99,9 @@ function movieThis(input) {
             "Language of the Movie: " + movieData.Language,
             "Plot: " + movieData.Plot,
             "Actors: " + movieData.Actors
-        ]
+        ].join("\n\n");
 
-        console.log(movieDisplay);
-        //pretty up log display
+        console.log("\n--------------------------------------\n" + movieDisplay + "\n--------------------------------------\n");
     });
 
     fs.appendFile("log.txt", input + "\n", function(error) {
