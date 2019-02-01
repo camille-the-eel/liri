@@ -52,11 +52,7 @@ function concertThis(input) {
             console.log(error);
         });
 
-    fs.appendFile("log.txt", input + "\n", function(error) {
-        if (error) {
-            console.log("Error");
-        }
-    });
+    log("concert-this, " + input);
 }
 
 function spotifyThis(input) {
@@ -77,11 +73,7 @@ function spotifyThis(input) {
         console.log("\n--------------------------------------\n" + songDisplay + "\n--------------------------------------\n"); 
     });
 
-    fs.appendFile("log.txt", input + "\n", function(error) {
-        if (error) {
-            console.log("Error, cannot be logged.");
-        }
-    });
+    log("spotify this song, " + input);
 }
 
 function movieThis(input) {
@@ -104,11 +96,7 @@ function movieThis(input) {
         console.log("\n--------------------------------------\n" + movieDisplay + "\n--------------------------------------\n");
     });
 
-    fs.appendFile("log.txt", input + "\n", function(error) {
-        if (error) {
-            console.log("Error, cannot be logged" + error);
-        }
-    });
+    log("movie-this, " + input);
 
 }
 
@@ -139,4 +127,11 @@ function doThis() {
     })
 }
 
-//change logging  into one function that is called in each function
+function log(input) {
+
+    fs.appendFile("log.txt", input + "\n", function(error) {
+        if (error) {
+            console.log("Error, cannot be logged" + error);
+        }
+    });
+}
