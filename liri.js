@@ -25,7 +25,7 @@ if (process.argv.length === 2) {
 
 // console.log(input);
 
-function concertThis(input) {
+function concertThis() {
 
     axios.get("https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp").then(
         function (response) {
@@ -55,7 +55,7 @@ function concertThis(input) {
     log("concert-this, " + input);
 }
 
-function spotifyThis(input) {
+function spotifyThis() {
      
     spotify.search( {type: 'track', query: input }, function (error, response) {
         if (error) {
@@ -76,10 +76,13 @@ function spotifyThis(input) {
     log("spotify this song, " + input);
 }
 
-function movieThis(input) {
+function movieThis() {
 
     axios.get("http://www.omdbapi.com/?t=" + input + "&y=&plot=short&apikey=trilogy").then( 
-        function (response) {
+        function (response, error) {
+        if (error) {
+            return console.log('Error occurred: ' + error);
+        }
 
         var movieData = response.data;
         var movieDisplay = [
@@ -127,7 +130,7 @@ function doThis() {
     })
 }
 
-function log(input) {
+function log() {
 
     fs.appendFile("log.txt", input + "\n", function(error) {
         if (error) {
