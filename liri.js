@@ -37,16 +37,17 @@ function concertThis() {
                 count++;
 
                 var bitInfo = response.data[i].venue;
-                var momentDate = bitInfo.datetime;
                 var eventDisplay  = [
                     "Name of Venue: " + bitInfo.name,
                     "Location of Venue: " + bitInfo.city + ", " + bitInfo.country,
-                    "Date of Event: " + 
-                    moment(momentDate).format("MM/DD/YYYY")
+                    "Date of Event: " + moment(bitInfo.datetime).format("MM/DD/YYYY")
                     // moment ^^ this is todays date???
                 ].join("\n\n");
 
                 console.log(eventDisplay + "\n----------------------------------------------\n");
+
+
+                console.log(moment(bitInfo.datetime));
             }
 
     }).catch(function (error) {
