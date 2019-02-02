@@ -23,7 +23,7 @@ if (process.argv.length === 2) {
     console.log("Please enter a valid command. \n Search for music events by band or artist with: concert-this \n Learn more about your favorite songs with: spotify-this-song \n Get more information about your favorite movies with: movie-this \n Randomize your result with: do-what-it-says");
 }
 
-function concertThis() {
+function concertThis(input) {
 
     axios.get("https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp").then(
         function (response) {
@@ -46,6 +46,7 @@ function concertThis() {
 
                 console.log(eventDisplay + "\n----------------------------------------------\n");
 
+               
 
                 console.log(moment(bitInfo.datetime));
             }
@@ -57,7 +58,7 @@ function concertThis() {
     log("concert-this, " + input);
 }
 
-function spotifyThis() {
+function spotifyThis(input) {
      
     spotify.search( {type: 'track', query: input }, function (error, response) {
         if (error) {
@@ -78,7 +79,7 @@ function spotifyThis() {
     log("spotify this song, " + input);
 }
 
-function movieThis() {
+function movieThis(input) {
 
     axios.get("http://www.omdbapi.com/?t=" + input + "&y=&plot=short&apikey=trilogy").then( 
         function (response, error) {
@@ -108,10 +109,7 @@ function movieThis() {
 function doThis() {
 
     fs.readFile("random.txt", "utf8", function(error, response) {
-        if (error) {
-            console.log(error);
-        }
-
+        
         var info = response.split(",");
         var command = info[0];
         var searchInput = info[1].replace(/"/g, '');
@@ -125,7 +123,10 @@ function doThis() {
         } else {
             console.log("Error. Sorry.");
         }
-
+        
+        if (error) {
+            console.log(error);
+        }
     });
 }
 
