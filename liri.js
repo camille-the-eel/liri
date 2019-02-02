@@ -23,30 +23,29 @@ if (process.argv.length === 2) {
     console.log("Please enter a valid command. \n Search for music events by band or artist with: concert-this \n Learn more about your favorite songs with: spotify-this-song \n Get more information about your favorite movies with: movie-this \n Randomize your result with: do-what-it-says");
 }
 
-// console.log(input);
-
 function concertThis() {
 
     axios.get("https://rest.bandsintown.com/artists/" + input + "/events?app_id=codingbootcamp").then(
         function (response) {
 
-            fs.appendFile("test.txt", response, function(error) {
- 
-                if (error) {
-                    console.log(error);
-                }
-            })
+            var bit = response.data;
+            var count = 1;
 
+            console.log("\n------------------- Events -------------------\n");
+            for (i = 0; i < bit.length; i++) {
+                console.log(count + "." + "\n");
+                count++;
 
-            var bit = response.data[0];
-            // var venueName = venue.VenueData.name;
-            // console.log(bit.VenueData.name);
-            // console.log(response);
-            console.log(response.data);
+                var bitInfo = response.data[i].venue;
+                var eventDisplay  = [
+                    "Name of Venue: " + bitInfo.name,
+                    "Location of Venue: " + bitInfo.city + ", " + bitInfo.country,
+                    // "Date of Event: " + bitInfo,
+                    // moment ^^ coming soon
+                ].join("\n\n");
 
-            //STILL NEED TO FIND AND SHOW THE DATA
-            //AND SET DEFAULT
-
+                console.log(eventDisplay + "\n----------------------------------------------\n");
+            }
 
     }).catch(function (error) {
             console.log(error);
@@ -103,7 +102,6 @@ function movieThis() {
 
 }
 
-
 function doThis() {
 
     fs.readFile("random.txt", "utf8", function(error, response) {
@@ -127,7 +125,7 @@ function doThis() {
         
         //maybe use switch for this instead?
 
-    })
+    });
 }
 
 function log() {
