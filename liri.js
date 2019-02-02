@@ -48,7 +48,7 @@ function concertThis(input) {
 
                
 
-                console.log(moment(bitInfo.datetime));
+                // console.log(moment(bitInfo.datetime));
             }
 
     }).catch(function (error) {
