@@ -40,15 +40,11 @@ function concertThis(input) {
                 var eventDisplay  = [
                     "Name of Venue: " + bitInfo.name,
                     "Location of Venue: " + bitInfo.city + ", " + bitInfo.country,
-                    "Date of Event: " + moment(bitInfo.datetime).format("MM/DD/YYYY")
-                    // moment ^^ this is todays date???
+                    "Date of Event: " + moment(response.data[i].datetime).format("MM/DD/YYYY")
                 ].join("\n\n");
 
                 console.log(eventDisplay + "\n----------------------------------------------\n");
-
-               
-
-                // console.log(moment(bitInfo.datetime));
+                // console.log(moment(response.data[i].datetime));
             }
 
     }).catch(function (error) {
