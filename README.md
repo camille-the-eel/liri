@@ -1,4 +1,4 @@
-# liri-node-app
+# "LIRI" Node App
 
 LIRI is a command line node app, that will take the information (parameters) that you give it, and return data. 
 
