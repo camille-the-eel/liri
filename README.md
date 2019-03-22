@@ -40,7 +40,7 @@ To search for information on your favorite movie, use the command "movie-this". 
 
 This is an example of how your command should look:
 <br>
-**node liri.js movie-this Interstellar**
+**node liri.js movie-this It**
 
 ![](assets/liri-3.gif)
 
