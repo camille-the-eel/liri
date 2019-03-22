@@ -36,7 +36,7 @@ This is an example of how your command should look:
 
 =======================================================================================
 
-To search for information on your favorite movie, use the command "movie-this". It will use the installed node package, axios, to retreive data from the OMDB API. This will grab the following information about the movie you input: title, release year, IMDB rating, Rotten Tomatoes rating, country of production, language of the movie, plot synopsis, and actors. Should you not provide a movie, the program will output data for "Mr. Nobody".
+To search for information on your favorite movie, use the command "movie-this". It will use the installed node package, axios, to retreive data from the OMDB API. This will grab the following information about the movie you input: title, release year, IMDB rating, Rotten Tomatoes rating, country of production, language of the movie, plot synopsis, and actors.
 
 This is an example of how your command should look:
 <br>
