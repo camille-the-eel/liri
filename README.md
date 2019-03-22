@@ -22,6 +22,8 @@ This is an example of how your command should look:
 <br>
 **node liri.js concert-this Adele**
 
+![](liri-1.gif)
+
 =======================================================================================
 
 The command, "spotify-this-song" utilizes an installed node package (node-spotify-api) to retreive information from the Spotify API. This information will include: the artist, song name, album, and a preview link of the song from Spotify. If you do not provide a song, the default "The Sign" by Ace of Base will be searched for.
@@ -29,6 +31,8 @@ The command, "spotify-this-song" utilizes an installed node package (node-spotif
 This is an example of how your command should look:
 <br>
 **node liri.js spotify-this-song Ocean Eyes**
+
+![](liri-2.gif)
 
 =======================================================================================
 
@@ -38,6 +42,8 @@ This is an example of how your command should look:
 <br>
 **node liri.js movie-this Interstellar**
 
+![](liri-3.gif)
+
 =======================================================================================
 
 "do-what-it-says" will randomize your command. Running "do-what-it-says" will take the text from inside the "random.txt" file and call one of LIRI's commands. The data you receive will be dependent on which command is run.
@@ -45,6 +51,8 @@ This is an example of how your command should look:
 This is an example of how your command should look:
 <br>
 **node liri.js do-what-it-says**
+
+![](liri-4.gif)
 
 To watch a video of this app in action, use this link to download a short video: 
 https://github.com/camille-the-eel/liri-node-app/blob/master/assets/liri-app.mov
