@@ -1,4 +1,4 @@
-# "LIRI" Node App
+# "LIRI" Node.js App
 
 Use LIRI to discover more information about your favorite songs, movies, and artist's concerts!
 
