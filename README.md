@@ -53,6 +53,3 @@ This is an example of how your command should look:
 **node liri.js do-what-it-says**
 
 ![](assets/liri-4.gif)
-
-To watch a video of this app in action, use this link to download a short video: 
-https://github.com/camille-the-eel/liri-node-app/blob/master/assets/liri-app.mov
