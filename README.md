@@ -26,7 +26,7 @@ This is an example of how your command should look:
 
 =======================================================================================
 
-The command, "spotify-this-song" utilizes an installed node package (node-spotify-api) to retreive information from the Spotify API. This information will include: the artist, song name, album, and a preview link of the song from Spotify. If you do not provide a song, the default "The Sign" by Ace of Base will be searched for.
+The command, "spotify-this-song" utilizes an installed node package (node-spotify-api) to retreive information from the Spotify API. This information will include: the artist, song name, album, and a preview link of the song from Spotify.
 
 This is an example of how your command should look:
 <br>
