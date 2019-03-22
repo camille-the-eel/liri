@@ -6,6 +6,16 @@ Use LIRI to discover more information about your favorite songs, movies, and art
 
 LIRI is a command line Node.js app, that will take the information (parameters) that you give it, and return data. 
 
+**Technologies Used**
+- Javascript
+- Node.js
+- APIs:
+  - Spotify
+  - Bands In Town Artist Events
+  - OMDB
+
+=======================================================================================
+
 Using the command, "concert-this" will search for events/shows of the artist you provide using the Bands in Town Artist Events API. You will receive the name and location of the venue, as well as the date of the event in MM/DD/YYYY format.
 
 This is an example of how your command should look:
