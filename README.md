@@ -22,7 +22,7 @@ This is an example of how your command should look:
 <br>
 **node liri.js concert-this Adele**
 
-![](liri-1.gif)
+![](assets/liri-1.gif)
 
 =======================================================================================
 
@@ -32,7 +32,7 @@ This is an example of how your command should look:
 <br>
 **node liri.js spotify-this-song Ocean Eyes**
 
-![](liri-2.gif)
+![](assets/liri-2.gif)
 
 =======================================================================================
 
@@ -42,7 +42,7 @@ This is an example of how your command should look:
 <br>
 **node liri.js movie-this Interstellar**
 
-![](liri-3.gif)
+![](assets/liri-3.gif)
 
 =======================================================================================
 
@@ -52,7 +52,7 @@ This is an example of how your command should look:
 <br>
 **node liri.js do-what-it-says**
 
-![](liri-4.gif)
+![](assets/liri-4.gif)
 
 To watch a video of this app in action, use this link to download a short video: 
 https://github.com/camille-the-eel/liri-node-app/blob/master/assets/liri-app.mov
