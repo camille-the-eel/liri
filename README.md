@@ -2,7 +2,7 @@
 
 Use LIRI to discover more information about your favorite songs, movies, and artist's concerts!
 
-=====================================================================================
+=======================================================================================
 
 LIRI is a command line Node.js app, that will take the information (parameters) that you give it, and return data. 
 
@@ -12,17 +12,23 @@ This is an example of how your command should look:
 <br>
 **node liri.js concert-this Adele**
 
+=======================================================================================
+
 The command, "spotify-this-song" utilizes an installed node package (node-spotify-api) to retreive information from the Spotify API. This information will include: the artist, song name, album, and a preview link of the song from Spotify. If you do not provide a song, the default "The Sign" by Ace of Base will be searched for.
 
 This is an example of how your command should look:
 <br>
 **node liri.js spotify-this-song Ocean Eyes**
 
+=======================================================================================
+
 To search for information on your favorite movie, use the command "movie-this". It will use the installed node package, axios, to retreive data from the OMDB API. This will grab the following information about the movie you input: title, release year, IMDB rating, Rotten Tomatoes rating, country of production, language of the movie, plot synopsis, and actors. Should you not provide a movie, the program will output data for "Mr. Nobody".
 
 This is an example of how your command should look:
 <br>
 **node liri.js movie-this Interstellar**
+
+=======================================================================================
 
 "do-what-it-says" will randomize your command. Running "do-what-it-says" will take the text from inside the "random.txt" file and call one of LIRI's commands. The data you receive will be dependent on which command is run.
 
